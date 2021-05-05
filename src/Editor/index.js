@@ -219,7 +219,7 @@ class WysiwygEditor extends Component {
           ...this.props.mention,
           onChange: this.onChange,
           getEditorState: this.getEditorState,
-          getSuggestions: this.getSuggestions2,
+          getSuggestions: this.getSuggestions,
           getWrapperRef: this.getWrapperRef,
           modalHandler: this.modalHandler,
         })
@@ -231,7 +231,7 @@ class WysiwygEditor extends Component {
           ...this.props.mention2,
           onChange: this.onChange,
           getEditorState: this.getEditorState,
-          getSuggestions: this.getSuggestions,
+          getSuggestions: this.getSuggestions2,
           getWrapperRef: this.getWrapperRef,
           modalHandler: this.modalHandler,
         })
