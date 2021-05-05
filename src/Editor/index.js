@@ -502,7 +502,6 @@ class WysiwygEditor extends Component {
           onKeyDown={KeyDownHandler.onKeyDown}
           onMouseDown={this.onEditorMouseDown}
         >
-          jsadhsakdhjasdhjasdk
           <Editor
             ref={this.setEditorReference}
             keyBindingFn={this.keyBindingFn}
