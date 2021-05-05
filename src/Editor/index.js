@@ -41,7 +41,7 @@ class WysiwygEditor extends Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props);
+    alert(this.props);
     const toolbar = mergeRecursive(defaultToolbar, props.toolbar);
     const wrapperId = props.wrapperId
       ? props.wrapperId
