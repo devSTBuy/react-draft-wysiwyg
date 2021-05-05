@@ -213,6 +213,7 @@ class WysiwygEditor extends Component {
         showOpenOptionOnHover: toolbar.link.showOpenOptionOnHover,
       }),
     ];
+    console.log(this.props);
     if (this.props.mention) {
       decorators.push(
         ...getMentionDecorators({
@@ -226,7 +227,6 @@ class WysiwygEditor extends Component {
       );
     }
     if (this.props.mention2) {
-      console.log(this.props.mention2);
       decorators.push(
         ...getMention2Decorators({
           ...this.props.mention2,
