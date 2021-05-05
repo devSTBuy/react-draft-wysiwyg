@@ -501,24 +501,7 @@ class WysiwygEditor extends Component {
           onBlur={this.onEditorBlur}
           onKeyDown={KeyDownHandler.onKeyDown}
           onMouseDown={this.onEditorMouseDown}
-        >
-          jsadhsakdhjasdhjasdk
-          <Editor
-            ref={this.setEditorReference}
-            keyBindingFn={this.keyBindingFn}
-            editorState={editorState}
-            onChange={this.onChange}
-            blockStyleFn={blockStyleFn}
-            customStyleMap={this.getStyleMap(this.props)}
-            handleReturn={this.handleReturn}
-            handlePastedText={this.handlePastedTextFn}
-            blockRendererFn={this.blockRendererFn}
-            handleKeyCommand={this.handleKeyCommand}
-            ariaLabel={ariaLabel || "rdw-editor"}
-            blockRenderMap={blockRenderMap}
-            {...this.editorProps}
-          />
-        </div>
+        ></div>
       </div>
     );
   }
