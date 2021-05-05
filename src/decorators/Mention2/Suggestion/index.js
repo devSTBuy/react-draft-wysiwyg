@@ -165,6 +165,7 @@ function getSuggestionComponent() {
           newState.activeOption = activeOption - 1;
         }
       } else if (event.key === "Escape") {
+        event.stopPropagation();
         newState.showSuggestions = false;
         SuggestionHandler.close();
       } else if (event.key === "Enter") {
