@@ -41,7 +41,6 @@ class WysiwygEditor extends Component {
   constructor(props) {
     super(props);
 
-    alert(this.props);
     const toolbar = mergeRecursive(defaultToolbar, props.toolbar);
     const wrapperId = props.wrapperId
       ? props.wrapperId
@@ -503,6 +502,7 @@ class WysiwygEditor extends Component {
           onKeyDown={KeyDownHandler.onKeyDown}
           onMouseDown={this.onEditorMouseDown}
         >
+          jsadhsakdhjasdhjasdk
           <Editor
             ref={this.setEditorReference}
             keyBindingFn={this.keyBindingFn}
