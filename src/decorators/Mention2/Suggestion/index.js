@@ -147,7 +147,6 @@ function getSuggestionComponent() {
     onEditorKeyDown = (event) => {
       const { activeOption } = this.state;
       const newState = {};
-      event.stopPropagation();
       if (event.key === "ArrowDown") {
         event.preventDefault();
         if (activeOption === this.filteredSuggestions.length - 1) {
@@ -162,6 +161,7 @@ function getSuggestionComponent() {
           newState.activeOption = activeOption - 1;
         }
       } else if (event.key === "Escape") {
+        event.stopPropagation();
         newState.showSuggestions = false;
         SuggestionHandler.close();
       } else if (event.key === "Enter") {
