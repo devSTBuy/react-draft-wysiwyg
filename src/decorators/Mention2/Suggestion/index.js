@@ -36,12 +36,8 @@ class Suggestion {
 
   findSuggestionEntities = (contentBlock, callback) => {
     if (this.config.getEditorState()) {
-      const {
-        separator,
-        trigger,
-        getSuggestions,
-        getEditorState,
-      } = this.config;
+      const { separator, trigger, getSuggestions, getEditorState } =
+        this.config;
       const selection = getEditorState().getSelection();
       if (
         selection.get("anchorKey") === contentBlock.get("key") &&
@@ -151,6 +147,7 @@ function getSuggestionComponent() {
     onEditorKeyDown = (event) => {
       const { activeOption } = this.state;
       const newState = {};
+      event.stopPropagation();
       if (event.key === "ArrowDown") {
         event.preventDefault();
         if (activeOption === this.filteredSuggestions.length - 1) {
