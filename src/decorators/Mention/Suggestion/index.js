@@ -131,7 +131,7 @@ function getSuggestionComponent() {
     componentDidUpdate(props) {
       const { children } = this.props;
       if (children !== props.children) {
-        this.filterSuggestions(props);
+        this.filterSuggestions(this.props);
         this.setState({
           showSuggestions: true,
         });
@@ -201,18 +201,22 @@ function getSuggestionComponent() {
 
     filterSuggestions = (props) => {
       const mentionText = props.children[0].props.text.substr(1);
-      console.log(
-        props.children[0].props.text,
-        props.children[0].props.text.substr(1)
-      );
       const suggestions = config.getSuggestions();
       this.filteredSuggestions =
         suggestions &&
-        suggestions.filter(
-          (suggestion) =>
-            suggestion.value.toLowerCase().indexOf(mentionText.toLowerCase()) >
-            -1
-        );
+        suggestions.filter((suggestion) => {
+          if (!mentionText || mentionText.length === 0) {
+            return true;
+          }
+          if (config.caseSensitive) {
+            return suggestion.value.indexOf(mentionText) >= 0;
+          }
+          return (
+            suggestion.value
+              .toLowerCase()
+              .indexOf(mentionText && mentionText.toLowerCase()) >= 0
+          );
+        });
     };
 
     addMention = () => {

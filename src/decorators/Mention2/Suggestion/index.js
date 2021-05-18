@@ -131,7 +131,7 @@ function getSuggestionComponent() {
     componentDidUpdate(props) {
       const { children } = this.props;
       if (children !== props.children) {
-        this.filterSuggestions(props);
+        this.filterSuggestions(this.props);
         this.setState({
           showSuggestions: true,
         });
