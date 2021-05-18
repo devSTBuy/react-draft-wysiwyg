@@ -201,22 +201,18 @@ function getSuggestionComponent() {
 
     filterSuggestions = (props) => {
       const mentionText = props.children[0].props.text.substr(1);
+      console.log(
+        props.children[0].props.text,
+        props.children[0].props.text.substr(1)
+      );
       const suggestions = config.getSuggestions();
       this.filteredSuggestions =
         suggestions &&
-        suggestions.filter((suggestion) => {
-          if (!mentionText || mentionText.length === 0) {
-            return true;
-          }
-          if (config.caseSensitive) {
-            return suggestion.value.indexOf(mentionText) >= 0;
-          }
-          return (
-            suggestion.value
-              .toLowerCase()
-              .indexOf(mentionText && mentionText.toLowerCase()) >= 0
-          );
-        });
+        suggestions.filter(
+          (suggestion) =>
+            suggestion.value.toLowerCase().indexOf(mentionText.toLowerCase()) >
+            -1
+        );
     };
 
     addMention = () => {
