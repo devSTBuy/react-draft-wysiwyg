@@ -128,8 +128,9 @@ function getSuggestionComponent() {
       this.filterSuggestions(this.props);
     }
 
-    componentDidUpdate(props) {
+    componentDidUpdate(props, prevState) {
       const { children } = this.props;
+      const { activeOption } = this.state;
       if (children !== props.children) {
         this.filterSuggestions(this.props);
         this.setState({
@@ -153,12 +154,16 @@ function getSuggestionComponent() {
           newState.activeOption = 0;
         } else {
           newState.activeOption = activeOption + 1;
+          let activeElement = document.getElementById(`suggestion-${newState.activeOption}`);
+          activeElement?.scrollIntoView();
         }
       } else if (event.key === "ArrowUp") {
         if (activeOption <= 0) {
           newState.activeOption = this.filteredSuggestions.length - 1;
         } else {
           newState.activeOption = activeOption - 1;
+          let activeElement = document.getElementById(`suggestion-${newState.activeOption}`);
+          activeElement?.scrollIntoView();
         }
       } else if (event.key === "Escape") {
         if (showSuggestions) event.stopPropagation();
@@ -255,6 +260,7 @@ function getSuggestionComponent() {
             >
               {this.filteredSuggestions.map((suggestion, index) => (
                 <span
+                  id={`suggestion-${index}`}
                   key={index}
                   spellCheck={false}
                   onClick={this.addMention}
