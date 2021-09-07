@@ -155,7 +155,9 @@ function getSuggestionComponent() {
         } else {
           newState.activeOption = activeOption + 1;
           let activeElement = document.getElementById(`suggestion-${newState.activeOption}`);
-          activeElement?.scrollIntoView();
+          if (activeElement) {
+            activeElement.parentNode.scrollTop = activeElement.offsetTop - activeElement.parentNode.offsetTop;
+          }
         }
       } else if (event.key === "ArrowUp") {
         if (activeOption <= 0) {
@@ -163,7 +165,9 @@ function getSuggestionComponent() {
         } else {
           newState.activeOption = activeOption - 1;
           let activeElement = document.getElementById(`suggestion-${newState.activeOption}`);
-          activeElement?.scrollIntoView();
+          if (activeElement) {
+            activeElement.parentNode.scrollTop = activeElement.offsetTop - activeElement.parentNode.offsetTop;
+          }
         }
       } else if (event.key === "Escape") {
         if (showSuggestions) event.stopPropagation();
